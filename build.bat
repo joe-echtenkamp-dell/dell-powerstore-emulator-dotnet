@@ -3,7 +3,7 @@
 
 @echo off
 
-dotnet restore src\IO.Swagger
-dotnet build src\IO.Swagger
-echo Now, run the following to start the project: dotnet run -p src\IO.Swagger\IO.Swagger.csproj --launch-profile web.
+dotnet restore src\Com.Dell.Emulator.Powerstore
+dotnet build src\Com.Dell.Emulator.Powerstore
+echo Now, run the following to start the project: dotnet run -p src\Com.Dell.Emulator.Powerstore\Com.Dell.Emulator.Powerstore.csproj --launch-profile web.
 echo.
