@@ -363,7 +363,7 @@ namespace IO.Swagger.Controllers
             // return StatusCode(422, default(ErrorResponse));
 
             string exampleJson = null;
-            exampleJson = "{\"empty\": false}";
+            exampleJson = "{}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<FileImportSessionReportResponse>(exampleJson)

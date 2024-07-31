@@ -160,7 +160,7 @@ namespace IO.Swagger.Controllers
             // return StatusCode(404, default(ErrorResponse));
 
             string exampleJson = null;
-            exampleJson = "{\"empty\": false}";
+            exampleJson = "{}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<FileSystemInstance>(exampleJson)
