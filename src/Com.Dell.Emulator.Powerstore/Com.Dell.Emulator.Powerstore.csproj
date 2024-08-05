@@ -7,6 +7,7 @@
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>Com.Dell.Emulator.Powerstore</AssemblyName>
     <PackageId>Com.Dell.Emulator.Powerstore</PackageId>
+    <AspNetCoreModuleName>AspNetCoreModuleV2</AspNetCoreModuleName>
   </PropertyGroup>
   <ItemGroup>
     <!-- <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4"/> -->
