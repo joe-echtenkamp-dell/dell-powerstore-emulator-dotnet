@@ -12,4 +12,6 @@ RUN dotnet publish -c Release -o out src/Com.Dell.Emulator.Powerstore/Com.Dell.E
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /App
 COPY --from=build-env /App/out .
+ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_URLS=http://+:8080
 ENTRYPOINT ["dotnet", "Com.Dell.Emulator.Powerstore.dll"]
