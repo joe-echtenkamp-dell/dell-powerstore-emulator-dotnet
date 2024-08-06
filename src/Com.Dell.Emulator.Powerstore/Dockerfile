@@ -13,6 +13,9 @@ RUN dotnet publish -c Release -o out
 
 # build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0
+RUN mkdir /data
+VOLUME /data
 WORKDIR /app
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "Com.Dell.Emulator.Powerstore.dll"]
+RUN dotnet tool install --global dotnet-ef
+ENTRYPOINT ["sh", "entrypoint.sh"]

@@ -19,15 +19,24 @@ using Com.Dell.Emulator.Powerstore.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using Com.Dell.Emulator.Powerstore.Models;
+using com.dell.emulator.powerstore.Models.DataContext;
+using System.Linq;
 
 namespace Com.Dell.Emulator.Powerstore.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class AlertApiController : ControllerBase
-    { 
+    {
+        public AlertApiController(PowerstoreEmulatorDBContext context) 
+        {
+            _context = context;
+        }
+
+        private readonly PowerstoreEmulatorDBContext _context;
+
         /// <summary>
         /// Collection Query
         /// </summary>
@@ -41,21 +50,8 @@ namespace Com.Dell.Emulator.Powerstore.Controllers
         [SwaggerResponse(statusCode: 200, type: typeof(List<AlertInstance>), description: "Success")]
         [SwaggerResponse(statusCode: 206, type: typeof(List<AlertInstance>), description: "Partial content of alert instance objects")]
         public virtual IActionResult AlertGet()
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(List<AlertInstance>));
-
-            //TODO: Uncomment the next line to return response 206 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(206, default(List<AlertInstance>));
-
-            string exampleJson = null;
-            exampleJson = "{}";
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<AlertInstance>>(exampleJson)
-            : default(List<AlertInstance>);
-            //TODO: Change the data returned
-            return new ObjectResult(example);
+        {
+            return StatusCode(200, _context.Alerts.ToList());
         }
 
         /// <summary>
@@ -71,8 +67,8 @@ namespace Com.Dell.Emulator.Powerstore.Controllers
         [SwaggerOperation("AlertIdGet")]
         [SwaggerResponse(statusCode: 200, type: typeof(AlertInstance), description: "Success")]
         [SwaggerResponse(statusCode: 404, type: typeof(ErrorResponse), description: "Not Found")]
-        public virtual IActionResult AlertIdGet([FromRoute][Required]string id)
-        { 
+        public virtual IActionResult AlertIdGet([FromRoute][Required] string id)
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(AlertInstance));
 
@@ -81,7 +77,7 @@ namespace Com.Dell.Emulator.Powerstore.Controllers
 
             string exampleJson = null;
             exampleJson = "{\"empty\": false}";
-            
+
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<AlertInstance>(exampleJson)
             : default(AlertInstance);
@@ -106,8 +102,8 @@ namespace Com.Dell.Emulator.Powerstore.Controllers
         [SwaggerResponse(statusCode: 400, type: typeof(ErrorResponse), description: "Invalid Request")]
         [SwaggerResponse(statusCode: 404, type: typeof(ErrorResponse), description: "Not Found")]
         [SwaggerResponse(statusCode: 422, type: typeof(ErrorResponse), description: "Operation Failed")]
-        public virtual IActionResult AlertIdPatch([FromRoute][Required]string id, [FromBody]AlertModify alertModify)
-        { 
+        public virtual IActionResult AlertIdPatch([FromRoute][Required] string id, [FromBody] AlertModify alertModify)
+        {
             //TODO: Uncomment the next line to return response 204 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(204);
 

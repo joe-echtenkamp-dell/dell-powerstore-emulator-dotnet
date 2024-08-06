@@ -73,7 +73,7 @@ namespace Com.Dell.Emulator.Powerstore.Models
         /// </summary>
 
         [DataMember(Name="state")]
-        public FileSystemImportState State { get; set; }
+        public FileSystemImportState? State { get; set; }
 
         /// <summary>
         /// The progress percentage of the Filesystem data copy.

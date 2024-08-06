@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.dell.emulator.powerstore", "src\com.dell.emulator.powerstore\com.dell.emulator.powerstore.csproj", "{BED36AAA-9C3E-4D03-92D7-81D6D87F69C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BED36AAA-9C3E-4D03-92D7-81D6D87F69C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED36AAA-9C3E-4D03-92D7-81D6D87F69C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED36AAA-9C3E-4D03-92D7-81D6D87F69C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED36AAA-9C3E-4D03-92D7-81D6D87F69C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92C68997-01C6-4299-A5EB-6C4792B34AF5}
+	EndGlobalSection
+EndGlobal

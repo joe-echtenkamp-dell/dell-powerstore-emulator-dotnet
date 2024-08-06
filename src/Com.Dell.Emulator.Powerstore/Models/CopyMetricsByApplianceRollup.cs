@@ -49,7 +49,7 @@ namespace Com.Dell.Emulator.Powerstore.Models
         /// </summary>
 
         [DataMember(Name="session_type")]
-        public CopySessionTypeEnum SessionType { get; set; }
+        public CopySessionTypeEnum? SessionType { get; set; }
 
         /// <summary>
         /// Unique identifier of the appliance.

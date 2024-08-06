@@ -72,7 +72,7 @@ namespace Com.Dell.Emulator.Powerstore.Models
         /// </summary>
 
         [DataMember(Name="time_to_full_status")]
-        public ForecastTimeToFullStatusEnum TimeToFullStatus { get; set; }
+        public ForecastTimeToFullStatusEnum? TimeToFullStatus { get; set; }
 
         /// <summary>
         /// Localized message string corresponding to time_to_full_status

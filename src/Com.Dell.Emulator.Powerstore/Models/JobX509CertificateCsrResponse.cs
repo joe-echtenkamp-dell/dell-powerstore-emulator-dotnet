@@ -40,14 +40,14 @@ namespace Com.Dell.Emulator.Powerstore.Models
         /// </summary>
 
         [DataMember(Name="type")]
-        public X509CertificateUsageTypeEnum Type { get; set; }
+        public X509CertificateUsageTypeEnum? Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Service
         /// </summary>
 
         [DataMember(Name="service")]
-        public X509CertificateServiceEnum Service { get; set; }
+        public X509CertificateServiceEnum? Service { get; set; }
 
         /// <summary>
         /// Scope defines a subset of certificates belonging to one service. Scope here defines what Certificate Signing Request (CSR) can be generated. The scope for CSR Response only includes: - Certificate with Service Management_HTTP and Type of Server, Scope value can only be External - Certificate with Service VASA_HTTP and Type of Server, Scope value can be null(unused and optional) - Certificate with Service KMIP_HTTP and Type of Client, Scope value can be null(unused and optional) - Certificate with Service Syslog_HTTP and Type of Client, Scope value can be null(unused and optional) 

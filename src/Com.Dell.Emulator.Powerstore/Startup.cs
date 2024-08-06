@@ -23,6 +23,8 @@ using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Com.Dell.Emulator.Powerstore.Filters;
+using com.dell.emulator.powerstore.Models.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Com.Dell.Emulator.Powerstore
@@ -82,7 +84,7 @@ namespace Com.Dell.Emulator.Powerstore
                            Url = new Uri("https://github.com/swagger-api/swagger-codegen"),
                            Email = ""
                         },
-                        TermsOfService = new Uri("")
+                        //TermsOfService = new Uri("")
                     });
                     c.CustomSchemaIds(type => type.FullName);
                     c.IncludeXmlComments($"{AppContext.BaseDirectory}{Path.DirectorySeparatorChar}{_hostingEnv.ApplicationName}.xml");
@@ -93,6 +95,9 @@ namespace Com.Dell.Emulator.Powerstore
                     // Use [ValidateModelState] on Actions to actually validate it in C# as well!
                     c.OperationFilter<GeneratePathParamsValidationFilter>();
                 });
+
+            var temp = System.IO.Path.Join("/data", "PowerstoreEmulatorDB.db");
+            services.AddDbContext<PowerstoreEmulatorDBContext>(options => options.UseSqlite($"Data Source={temp}"));
         }
 
         /// <summary>

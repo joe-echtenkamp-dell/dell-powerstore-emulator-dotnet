@@ -96,7 +96,7 @@ namespace Com.Dell.Emulator.Powerstore.Models
         /// </summary>
 
         [DataMember(Name="protocol_type")]
-        public FileImportSessionReportProtocolEnum ProtocolType { get; set; }
+        public FileImportSessionReportProtocolEnum? ProtocolType { get; set; }
 
         /// <summary>
         /// Gets or Sets SmbServer
@@ -110,14 +110,14 @@ namespace Com.Dell.Emulator.Powerstore.Models
         /// </summary>
 
         [DataMember(Name="state")]
-        public FileImportSessionStateEnum State { get; set; }
+        public FileImportSessionStateEnum? State { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentOperation
         /// </summary>
 
         [DataMember(Name="current_operation")]
-        public FileImportSessionCurrentOperationEnum CurrentOperation { get; set; }
+        public FileImportSessionCurrentOperationEnum? CurrentOperation { get; set; }
 
         /// <summary>
         /// The progress percentage of the current operation. When the import is in the &#39;Initial_Copy_In_Progress&#39; or &#39;Incremental_Copy_In_Progress&#39; , this value indicates the completion percent for the import. Before the import is in the copy states, this value is 0. After the cutover or if there is a failure, this value is null.

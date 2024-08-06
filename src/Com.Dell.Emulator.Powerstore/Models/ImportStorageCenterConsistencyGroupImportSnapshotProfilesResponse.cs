@@ -20,13 +20,13 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace Com.Dell.Emulator.Powerstore.Models
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [DataContract]
     public partial class ImportStorageCenterConsistencyGroupImportSnapshotProfilesResponse : List<ImportStorageCenterSnapshotProfileInstance>, IEquatable<ImportStorageCenterConsistencyGroupImportSnapshotProfilesResponse>
-    { 
+    {
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -43,7 +43,7 @@ namespace Com.Dell.Emulator.Powerstore.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -88,7 +88,7 @@ namespace Com.Dell.Emulator.Powerstore.Models
         }
 
         #region Operators
-        #pragma warning disable 1591
+#pragma warning disable 1591
 
         public static bool operator ==(ImportStorageCenterConsistencyGroupImportSnapshotProfilesResponse left, ImportStorageCenterConsistencyGroupImportSnapshotProfilesResponse right)
         {
@@ -100,7 +100,7 @@ namespace Com.Dell.Emulator.Powerstore.Models
             return !Equals(left, right);
         }
 
-        #pragma warning restore 1591
+#pragma warning restore 1591
         #endregion Operators
     }
 }
