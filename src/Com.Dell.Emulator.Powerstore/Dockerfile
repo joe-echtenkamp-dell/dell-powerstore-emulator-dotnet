@@ -9,7 +9,7 @@ RUN dotnet restore
 
 # copy everything else and build
 COPY ./src/com.dell.emulator.powerstore/ ./
-RUN dotnet publish  -c Release -o out
+RUN dotnet publish -c Release -o out
 
 # build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0
