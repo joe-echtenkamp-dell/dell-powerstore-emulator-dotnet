@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build-env
 WORKDIR /app
 
-ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # copy csproj and restore as distinct layers
-COPY ./src/com.dell.emulator.powerstore/com.dell.emulator.powerstore.csproj ./
+COPY ./src/com.dell.emulator.powerstore/com.dell.emulator.powerstore.csproj ./com.dell.emulator.powerstore.csproj
 RUN dotnet restore
 
 # copy everything else and build
