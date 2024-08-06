@@ -15,5 +15,4 @@ RUN mkdir /data
 VOLUME /data
 WORKDIR /app
 COPY --from=build-env /app/out .
-RUN dotnet tool install --global dotnet-ef
-ENTRYPOINT ["sh", "entrypoint.sh"]
+ENTRYPOINT ["dotnet", "com.dell.emulator.powerstore.dll"]
