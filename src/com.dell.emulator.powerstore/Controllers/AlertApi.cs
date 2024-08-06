@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Authorization;
 using Com.Dell.Emulator.Powerstore.Models;
 using com.dell.emulator.powerstore.Models.DataContext;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Com.Dell.Emulator.Powerstore.Controllers
 {
@@ -51,7 +52,16 @@ namespace Com.Dell.Emulator.Powerstore.Controllers
         [SwaggerResponse(statusCode: 206, type: typeof(List<AlertInstance>), description: "Partial content of alert instance objects")]
         public virtual IActionResult AlertGet()
         {
-            return StatusCode(200, _context.Alerts.ToList());
+            var alerts = new List<AlertInstance>();
+            alerts.Append(new AlertInstance() { Id = "001", Severity = SeverityEnum.NoneEnum, DescriptionL10n = "Alert01", GeneratedTimestamp = DateTime.Now });
+            alerts.Append(new AlertInstance() { Id = "002", Severity = SeverityEnum.InfoEnum, DescriptionL10n = "Alert02", GeneratedTimestamp = DateTime.Now });
+            alerts.Append(new AlertInstance() { Id = "003", Severity = SeverityEnum.MinorEnum, DescriptionL10n = "Alert03", GeneratedTimestamp = DateTime.Now });
+            alerts.Append(new AlertInstance() { Id = "004", Severity = SeverityEnum.MajorEnum, DescriptionL10n = "Alert04", GeneratedTimestamp = DateTime.Now });
+            alerts.Append(new AlertInstance() { Id = "005", Severity = SeverityEnum.CriticalEnum, DescriptionL10n = "Alert05", GeneratedTimestamp = DateTime.Now });
+            alerts.Append(new AlertInstance() { Id = "006", Severity = SeverityEnum.InfoEnum, DescriptionL10n = "Alert06", GeneratedTimestamp = DateTime.Now });
+            alerts.Append(new AlertInstance() { Id = "007", Severity = SeverityEnum.InfoEnum, DescriptionL10n = "Alert07", GeneratedTimestamp = DateTime.Now });
+
+            return StatusCode(200, alerts);
         }
 
         /// <summary>
