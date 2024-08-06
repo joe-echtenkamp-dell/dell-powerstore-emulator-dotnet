@@ -1,17 +1,21 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
-WORKDIR /App
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build-env
+WORKDIR /app
 
-# Copy everything
-COPY . ./
-# Restore as distinct layers
-RUN dotnet restore src/Com.Dell.Emulator.Powerstore/Com.Dell.Emulator.Powerstore.csproj 
-# Build and publish a release
-RUN dotnet publish -c Release -o out src/Com.Dell.Emulator.Powerstore/Com.Dell.Emulator.Powerstore.csproj
+ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
-WORKDIR /App
-COPY --from=build-env /App/out .
-ENV ASPNETCORE_ENVIRONMENT=Production
-ENV ASPNETCORE_URLS=http://+:8080
-ENTRYPOINT ["dotnet", "Com.Dell.Emulator.Powerstore.dll"]
+# copy csproj and restore as distinct layers
+COPY ./src/com.dell.emulator.powerstore/com.dell.emulator.powerstore.csproj ./
+RUN dotnet restore
+
+# copy everything else and build
+COPY ./src/com.dell.emulator.powerstore/ ./
+RUN dotnet publish -c Release -o out
+
+# build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.0
+RUN mkdir /data
+VOLUME /data
+WORKDIR /app
+COPY --from=build-env /app/out .
+RUN dotnet tool install --global dotnet-ef
+ENTRYPOINT ["sh", "entrypoint.sh"]
