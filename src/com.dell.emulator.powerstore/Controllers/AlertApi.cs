@@ -31,12 +31,12 @@ namespace Com.Dell.Emulator.Powerstore.Controllers
     [ApiController]
     public class AlertApiController : ControllerBase
     {
-        public AlertApiController(PowerstoreEmulatorDBContext context) 
-        {
-            _context = context;
-        }
+        //public AlertApiController(PowerstoreEmulatorDBContext context) 
+        //{
+        //    _context = context;
+        //}
 
-        private readonly PowerstoreEmulatorDBContext _context;
+        //private readonly PowerstoreEmulatorDBContext _context;
 
         /// <summary>
         /// Collection Query
