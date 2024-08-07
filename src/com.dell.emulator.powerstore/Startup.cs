@@ -96,8 +96,8 @@ namespace Com.Dell.Emulator.Powerstore
                     c.OperationFilter<GeneratePathParamsValidationFilter>();
                 });
 
-            var temp = System.IO.Path.Join("/data", "PowerstoreEmulatorDB.db");
-            services.AddDbContext<PowerstoreEmulatorDBContext>(options => options.UseSqlite($"Data Source={temp}"));
+            //var temp = System.IO.Path.Join("/data", "PowerstoreEmulatorDB.db");
+            //services.AddDbContext<PowerstoreEmulatorDBContext>(options => options.UseSqlite($"Data Source={temp}"));
         }
 
         /// <summary>
